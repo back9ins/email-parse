@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var mailstrip = require('mailstrip');
+var urlencode = require('urlencode');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.post('/parse', function(req, res, next) {
+  res.json({ parsed: urlencode(mailstrip(urlencode.decode(req.body.reply))) });
 });
 
 module.exports = router;
