@@ -26,4 +26,11 @@ An example POST request to `/parse` like the below will return the desired respo
 
 And a response like so will be returned:
 
-  
+    Connection: keep-alive
+    X-Powered-By: Express
+
+    {
+      "parsed": "my%20urlencoded%20text"
+    }
+
+POSTing to it with an actual e-mail chain will return only the reply, thanks to the mailstrip package.
